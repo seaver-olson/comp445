@@ -1,0 +1,11 @@
+# Paper Reviewed: PIE in the Sky:
+## Online Passive Interference Estimation for Enterprise WLANs
+### https://neilklingensmith.com/teaching/loyola/cs445-s2025/readings/pie.pdf
+
+The researchers of this paper aimed to address the problem of increased WLAN interference by creating a tool that was capable of real-time interference monitoring.  This was to "improve network performance by dynamically adjusting operating parameters like the channel of operation and transmit power of access points, but also diagnose and potentially proactively fix problems". They accomplished this by passively monitoring network traffic and incrementally building a conflict graph, which is a map of relationships of network interference.  Additionally, they recorded the packet loss between links and determined whether two access points could detect each other's traffic, which would indicate significant overlap between access points.  
+
+One notable assumption, as mentioned on page 8, is:"We select links whose delivery ratio in isolation is greater than 0.9 in both directions." This implies that links with delivery ratio below this threshold would automatically be classified as external interference. By recording all results on the network, the researchers were able to generate highly accurate data, although this approach may have been somewhat restrive in its inclusivity.  
+
+A key takeaway for me was the contradication between the "task of the referee" from Berekely and the claims in that paper that the submissions of research papers will be declined for numerous grammatical errors however I found many errors while reading as well as data and expirement details that they left out as well.  I also learned that enterprise-level WLANs often consist of many closely located access points, which can interfere with one another, highlighting the need for interference measurement to optimize access point config and minimize overlapping connections.
+
+My only remaining question is how the project would perform on a different inteface such as Bluetooth
