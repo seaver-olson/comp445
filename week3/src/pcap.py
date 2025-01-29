@@ -75,7 +75,7 @@ def process(pcap, outFile):
 	plt.xlabel("Time (s)")
 	plt.ylabel("Bytes per/sec")
 	plt.title("Data Rate vs Time")
-	plt.savefig(outFile)
+	plt.savefig("../results/" + outFile)
 	plt.close()
 
 
@@ -84,16 +84,16 @@ if __name__ == '__main__':
 
 	#first Device: RW612 Board
 	init()
-	process(tbPcap,"rw612.png")
-	with open("rw612.md","w") as file:
+	process(tbPcap,"../results/rw612.png")
+	with open("../results/rw612.md","w") as file:
 		file.write(f"Latency (avg): {lat}\n")
 		file.write(f"Throughput: {throughPut}\n")
 		file.write(f"Loss rate: {loss}\n")
 		file.write("![Data Rate vs Time](rw612.png)\n")
 	#second Device: Iphone
 	init()
-	process(tpPcap,"iphone.png")
-	with open("iphone.md","w") as file:
+	process(tpPcap,"../results/iphone.png")
+	with open("../results/iphone.md","w") as file:
 		file.write(f"Latency (avg): {lat}\n")
 		file.write(f"Throughput: {throughPut}\n")
 		file.write(f"Loss rate: {loss}\n")
