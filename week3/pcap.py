@@ -6,7 +6,7 @@ toPhone = "toPhone.pcap"
 
 #used to clear vars
 def init():
-	global time_intervals, byte_intervals, interval, curr_interval, curr_bytes,icmpTimes, latencies, total, start, end, throughPut, lat
+	global loss,time_intervals, byte_intervals, interval, curr_interval, curr_bytes,icmpTimes, latencies, total, start, end, throughPut, lat
 	icmpTimes = {}
 	latencies = []
 	time_intervals = []
@@ -18,6 +18,7 @@ def init():
 	start, end = None, None
 	throughPut = 0
 	lat = 0
+	loss= 0
 	
 
 def read(toPhone, toBoard):
@@ -30,11 +31,12 @@ def read(toPhone, toBoard):
 '''
 Find average latency of ICMP packets - Done
 Find the average throughput of the ICMP packet flow - Done
-Plot the data rate vs time for the trace
-Find the loss rate of the trace
+Plot the data rate vs time for the trace - Done
+Find the loss rate of the trace - Done
 '''
 def process(pcap, outFile):
-	global start, end, total, throughPut, lat, time_intervals, byte_intervals, interval, curr_interval, curr_bytes
+	sent, received = 0, 0
+	global loss, start, end, total, throughPut, lat, time_intervals, byte_intervals, interval, curr_interval, curr_bytes
 	for timestamp, buffer in pcap:
 		eth = dpkt.ethernet.Ethernet(buffer)
 		ip = eth.data
@@ -54,9 +56,11 @@ def process(pcap, outFile):
 		curr_bytes += len(buffer)
 		if (icmp.type == 8):
 			icmpTimes[hash(icmp.data)] = timestamp
+			sent+=1
 		elif (icmp.type == 0):
 			if hash(icmp.data) in icmpTimes:
 				latencies.append(timestamp - icmpTimes[hash(icmp.data)])
+				received+=1
 		#throughPut
 		if start is None:
 			start = timestamp
@@ -65,7 +69,8 @@ def process(pcap, outFile):
 		#for debugging
 		#print(f"Start time: {start}, End time: {end}, Total packets: {total}")
 	lat = sum(latencies) / len(latencies) if latencies else 0
-	throughPut = (total/(end-start))
+	throughPut = (total/(end-start)) if start and end else 0
+	loss = (sent - received) / sent if sent > 0 else 0
 	plt.plot(time_intervals,byte_intervals)
 	plt.xlabel("Time (s)")
 	plt.ylabel("Bytes per/sec")
@@ -80,12 +85,16 @@ if __name__ == '__main__':
 	#first Device: RW612 Board
 	init()
 	process(tbPcap,"rw612.png")
-	print("RW612 Board:")
-	print(f"Latency (avg): {lat}")
-	print(f"Throughput: {throughPut}")
+	with open("rw612.md","w") as file:
+		file.write(f"Latency (avg): {lat}\n")
+		file.write(f"Throughput: {throughPut}\n")
+		file.write(f"Loss rate: {loss}\n")
+		file.write("![Data Rate vs Time](rw612.png)\n")
 	#second Device: Iphone
 	init()
 	process(tpPcap,"iphone.png")
-	print("IPhone:")
-	print(f"Latency (avg): {lat}")
-	print(f"Throughput: {throughPut}")
+	with open("iphone.md","w") as file:
+		file.write(f"Latency (avg): {lat}\n")
+		file.write(f"Throughput: {throughPut}\n")
+		file.write(f"Loss rate: {loss}\n")
+		file.write("![Data Rate vs Time](iphone.png)\n")
