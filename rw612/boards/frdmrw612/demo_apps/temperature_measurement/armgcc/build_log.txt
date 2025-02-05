@@ -1,0 +1,45 @@
+Scanning dependencies of target temperature_measurement.elf
+[  2%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/boards/frdmrw612/demo_apps/temperature_measurement/temperature_measurement.c.obj
+[  5%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/boards/frdmrw612/demo_apps/temperature_measurement/board.c.obj
+[  7%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/boards/frdmrw612/demo_apps/temperature_measurement/hardware_init.c.obj
+[ 10%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxClBuffer/src/mcuxClBuffer.c.obj
+[ 13%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxClEls/src/mcuxClEls_Common.c.obj
+[ 15%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/boards/frdmrw612/demo_apps/temperature_measurement/pin_mux.c.obj
+[ 18%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/boards/frdmrw612/demo_apps/temperature_measurement/clock_config.c.obj
+[ 21%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Compare.c.obj
+[ 23%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Clear.c.obj
+[ 26%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxClEls/src/mcuxClEls_GlitchDetector.c.obj
+[ 28%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxClMemory/src/mcuxClMemory.c.obj
+[ 31%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Copy.c.obj
+[ 34%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/uart/fsl_adapter_usart.c.obj
+[ 36%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Set.c.obj
+[ 39%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/components/els_pkc/src/comps/mcuxCsslParamIntegrity/src/mcuxCsslParamIntegrity32.c.obj
+[ 42%] Building ASM object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/gcc/startup_RW612.S.obj
+[ 44%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/system_RW612.c.obj
+[ 47%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_clock.c.obj
+[ 50%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_cache.c.obj
+[ 52%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/boards/frdmrw612/flash_config/flash_config.c.obj
+[ 55%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_common.c.obj
+[ 57%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_common_arm.c.obj
+[ 60%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_usart.c.obj
+[ 63%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_flexcomm.c.obj
+[ 65%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_flexspi.c.obj
+[ 68%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_i2s_bridge.c.obj
+[ 71%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_iped.c.obj
+[ 73%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_gpio.c.obj
+[ 76%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_ocotp.c.obj
+[ 78%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_reset.c.obj
+[ 81%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/utilities/fsl_syscall_stub.c.obj
+[ 84%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/drivers/fsl_power.c.obj
+[ 89%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/utilities/fsl_sbrk.c.obj
+[ 89%] Building ASM object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/utilities/fsl_memcpy.S.obj
+[ 94%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/utilities/debug_console_lite/fsl_debug_console.c.obj
+[ 92%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/utilities/debug_console_lite/fsl_assert.c.obj
+[ 97%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Downloads/newRW612/devices/RW612/utilities/str/fsl_str.c.obj
+[100%] Linking C executable flash_debug/temperature_measurement.elf
+Memory region         Used Size  Region Size  %age Used
+  m_flash_config:          4 KB         4 KB    100.00%
+    m_interrupts:         640 B        640 B    100.00%
+          m_text:       35920 B    2092416 B      1.72%
+          m_data:        5856 B      1216 KB      0.47%
+[100%] Built target temperature_measurement.elf
