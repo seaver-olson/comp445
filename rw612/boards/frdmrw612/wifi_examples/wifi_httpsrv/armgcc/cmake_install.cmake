@@ -1,4 +1,4 @@
-# Install script for directory: /home/ubuntu/Downloads/newRW612/boards/frdmrw612/wifi_examples/wifi_httpsrv/armgcc
+# Install script for directory: /home/ubuntu/Desktop/comp445/rw612/boards/frdmrw612/wifi_examples/wifi_httpsrv/armgcc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "flash_release")
+    set(CMAKE_INSTALL_CONFIG_NAME "flash_debug")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ubuntu/Downloads/newRW612/boards/frdmrw612/wifi_examples/wifi_httpsrv/armgcc/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ubuntu/Desktop/comp445/rw612/boards/frdmrw612/wifi_examples/wifi_httpsrv/armgcc/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

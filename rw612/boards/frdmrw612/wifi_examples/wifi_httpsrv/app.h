@@ -18,6 +18,7 @@
  * Prototypes
  ******************************************************************************/
 /*${prototype:start}*/
+float DEMO_MeasureTemperature(void);
 void BOARD_InitHardware(void);
 /*${prototype:end}*/
 

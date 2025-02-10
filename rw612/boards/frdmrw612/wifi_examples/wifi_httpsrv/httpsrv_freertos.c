@@ -14,7 +14,7 @@
 #include "httpsrv_freertos.h"
 
 #include "lwip/opt.h"
-
+#include "hardware_init.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -37,7 +37,6 @@
 
 #include "httpsrv.h"
 #include "lwip/apps/mdns.h"
-
 /*******************************************************************************
  * Definitions
  ******************************************************************************/
@@ -147,22 +146,15 @@ static int cgi_rtc_data(HTTPSRV_CGI_REQ_STRUCT *param)
 static int cgi_example(HTTPSRV_CGI_REQ_STRUCT *param)
 {
     HTTPSRV_CGI_RES_STRUCT response = {0};
-
+    char temp_str[64];
     response.ses_handle  = param->ses_handle;
     response.status_code = HTTPSRV_CODE_OK;
 
     if (param->request_method == HTTPSRV_REQ_GET)
     {
-        char *c;
-
-        /* Replace '+' with spaces. */
-        while ((c = strchr(cgi_data, '+')) != NULL)
-        {
-            *c = ' ';
-        }
-        response.content_type   = HTTPSRV_CONTENT_TYPE_PLAIN;
-        response.data           = cgi_data;
-        response.data_length    = strlen(cgi_data);
+	snprintf(temp_str, sizeof(temp_str), "Current Temperature: %.2f °C", (double)DEMO_MeasureTemperature());
+        response.data           = temp_str;
+        response.data_length    = strlen(temp_str);
         response.content_length = response.data_length;
         HTTPSRV_cgi_write(&response);
     }

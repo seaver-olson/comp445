@@ -32,11 +32,11 @@
  * Definitions
  ******************************************************************************/
 #ifndef AP_SSID
-#define AP_SSID "CybersecurityLab"
+#define AP_SSID "Cybersec2"
 #endif
 
 #ifndef AP_PASSWORD
-#define AP_PASSWORD "loyolaRamblers315"
+#define AP_PASSWORD "MSdefend3R"
 #endif
 
 #define WIFI_NETWORK_LABEL "my_wifi"

@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "5.15.0-130-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "aarch64")
 
-include("/home/ubuntu/Downloads/newRW612/tools/cmake_toolchain_files/armgcc.cmake")
+include("/home/ubuntu/Desktop/comp445/rw612/tools/cmake_toolchain_files/armgcc.cmake")
 
 set(CMAKE_SYSTEM "Generic")
 set(CMAKE_SYSTEM_NAME "Generic")

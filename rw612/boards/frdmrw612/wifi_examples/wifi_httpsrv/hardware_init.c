@@ -6,13 +6,26 @@
  */
 
 /*${header:start}*/
-#include "pin_mux.h"
-#include "clock_config.h"
-#include "board.h"
-#include "fsl_power.h"
+#include "hardware_init.h"
 /*${header:end}*/
 
 /*${function:start}*/
+float DEMO_MeasureTemperature(void)
+{
+    uint16_t tempRawValue = 0U;
+
+    if (0UL == ((SENSOR_CTRL->MISC_CTRL_REG & SENSOR_CTRL_MISC_CTRL_REG_TIMER_1_ENABLE_MASK) >>
+                SENSOR_CTRL_MISC_CTRL_REG_TIMER_1_ENABLE_SHIFT))
+    {
+        SENSOR_CTRL->MISC_CTRL_REG |= SENSOR_CTRL_MISC_CTRL_REG_TIMER_1_ENABLE_MASK;
+    }
+
+    tempRawValue = (((SENSOR_CTRL->TSEN_CTRL_1_REG_2) & SENSOR_CTRL_TSEN_CTRL_1_REG_2_TSEN_TEMP_VALUE_MASK) >>
+                    SENSOR_CTRL_TSEN_CTRL_1_REG_2_TSEN_TEMP_VALUE_SHIFT);
+
+    return (tempRawValue * 0.480561F - 220.7074F);
+}
+
 void BOARD_InitHardware(void)
 {
     BOARD_InitBootPins();
