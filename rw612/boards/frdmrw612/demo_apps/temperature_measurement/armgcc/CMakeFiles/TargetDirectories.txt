@@ -1,3 +1,0 @@
-/home/ubuntu/Downloads/newRW612/boards/frdmrw612/demo_apps/temperature_measurement/armgcc/CMakeFiles/temperature_measurement.elf.dir
-/home/ubuntu/Downloads/newRW612/boards/frdmrw612/demo_apps/temperature_measurement/armgcc/CMakeFiles/edit_cache.dir
-/home/ubuntu/Downloads/newRW612/boards/frdmrw612/demo_apps/temperature_measurement/armgcc/CMakeFiles/rebuild_cache.dir
