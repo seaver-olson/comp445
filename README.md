@@ -40,12 +40,22 @@ Seaver Olson 2/10/2025
    - locate the desired project build file usually titled `./build_flash_debug.sh`
    - run `ARMGCC_DIR=/usr/ ./build_flash_debug.sh` this will compile your project into a directory labeled `flash_debug`
 ## Loading the .elf onto the board {#gdb}
-1. ** load program via gdb
+1. ** load program via gdb **
    - from this new directory run `gdb filename.elf` and insert the elf file that is located in that new directory
      - from the gdb terminal run `target remote localhost:2331` once you have the J-Link(#JLink) server set up in another window
      - once your gdb terminal is connected to your embedded system execute `load` to compile to `.elf` file onto the board
      - after the `load` command is complete exit gdb and proceed to [recieving data from the board](#minicom)
     
+## recieving data from the board {#minicom}
+1. install minicom pkg
+   - `sudo apt install minicom`
+2. run minicom
+ - `sudo minicom -s` -s is used to edit the serial  
+3. edit serial settings
+  - Serial Device: /dev/ttyACM0
+  - Bps/Par/Bits: 115200 8N1
+  - Hardware Flow Control: No
+  - Software Flow Control: No
 
 ## http server over wifi example {#wifiExample}
 
