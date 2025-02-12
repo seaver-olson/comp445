@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Secured bootloader with KBOOT support"/>
+<meta name="DC.Relation" scheme="URI" content="GUID-9EE283E7-E36D-420A-86E6-9D2159B9A820.html"/>
+<meta name="prodname" content=""/>
+<meta name="version" content="1"/>
+<meta name="release" content="0"/>
+<meta name="modification" content="0"/>
+<meta name="DC.Creator" content="NXP Semiconductors"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="GUID-74836EEE-984B-49A9-811E-D30B682974DB"/>
+<meta name="DC.Language" content="en-us"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Secured bootloader with KBOOT support</title>
+</head>
+<body id="GUID-74836EEE-984B-49A9-811E-D30B682974DB">
+
+
+    <h1 class="title topictitle1">Secured bootloader with KBOOT support</h1>
+
+    <div class="body">
+        <p class="p">The secured Bootloader is available for the K32W MCU, which is a dual-core device. It
+            supports programming of secured and authenticated images formatted as secured binary
+            (SBIN) using the KBOOT ROM API.</p>
+
+        <p class="p">The secured binary image is received over the air/wire by the application and stored into
+            a non-volatile memory. For example: external Flash. Then the boot flags must be
+            programmed to inform the bootloader that a new image is available and reset the MCU.</p>
+
+        <p class="p">To decrypt the image, the key should be pre-programmed into the device’s IFR. If a
+            different key should be used for the next boot process, the application has the option
+            to program the new key into the boot flags region to inform the bootloader (see SBKEK
+            field from below). This field should remain unprogrammed to use the key from IFR
+            region.</p>
+
+        <div class="p">The Boot flags are located immediately after the Bootloader region, and have an entire
+            sector
+            reserved.<pre class="pre codeblock">#define SBKEK_SIZE   (32)
+typedef PACKED_STRUCT
+{
+    uint8_t  newBootImageAvailable[FSL_FEATURE_FLASH_PFLASH_BLOCK_WRITE_UNIT_SIZE];
+    uint8_t  bootProcessCompleted[FSL_FEATURE_FLASH_PFLASH_BLOCK_WRITE_UNIT_SIZE];
+    uint8_t  version[FSL_FEATURE_FLASH_PFLASH_BLOCK_WRITE_UNIT_SIZE];
+    uint8_t  internalStorageAddr [FSL_FEATURE_FLASH_PFLASH_BLOCK_WRITE_UNIT_SIZE];
+#if defined(CPU_K32W042S1M2VPJ_cm4) &amp;&amp; (CPU_K32W042S1M2VPJ_cm4 == 1)
+    uint8_t  sbkek[SBKEK_SIZE];
+    uint8_t  magic[12];
+#endif
+}bootInfo_t; </pre>
+</div>
+
+        <div class="p">Also, the bootloader can update the image for the both cores at the same time, or only for one core.
+            <div class="fig fignone"><span class="figcap">Figure 1. Flash layout for the dual-core MCU</span>
+                <img class="image" src="GUID-8AA31F2D-88DC-4C10-8CD0-4E769B69F521-high.png"/>
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="GUID-9EE283E7-E36D-420A-86E6-9D2159B9A820.html">FSCI Bootloader</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['ocotp_5fotpdeinit',['OCOTP_OtpDeinit',['../a00162.html#ga4474b3fd1f63fd1327e704e5f1ed537d',1,'fsl_ocotp.h']]],
+  ['ocotp_5fotpfuseread',['OCOTP_OtpFuseRead',['../a00162.html#ga7e3710409104fdb329262626556154a9',1,'fsl_ocotp.h']]],
+  ['ocotp_5fotpinit',['OCOTP_OtpInit',['../a00162.html#ga49cd9ec480372e6f4c0fb7ff37284d08',1,'fsl_ocotp.h']]],
+  ['ocotp_5freadpackage',['OCOTP_ReadPackage',['../a00162.html#gade9cc6ae977498c510088bd48a85f67d',1,'fsl_ocotp.h']]],
+  ['ocotp_5freadsocotp',['OCOTP_ReadSocOtp',['../a00162.html#gab25391e9b8b1438f019b0cd6c4804370',1,'fsl_ocotp.h']]],
+  ['ocotp_5freadsvc',['OCOTP_ReadSVC',['../a00162.html#gada31304e4519685cdcb9e281cf6159e9',1,'fsl_ocotp.h']]],
+  ['ocotp_5freaduniqueid',['OCOTP_ReadUniqueID',['../a00162.html#ga63d052e397d9bcebea03bb19e36a3896',1,'fsl_ocotp.h']]],
+  ['ostimer_5fclearstatusflags',['OSTIMER_ClearStatusFlags',['../a00175.html#gaaa8ce064965da4ddae0d318f8dd2f7a5',1,'fsl_ostimer.h']]],
+  ['ostimer_5fdecimaltogray',['OSTIMER_DecimalToGray',['../a00175.html#gaf7d0d290d85412702670d7d4b0a87b62',1,'fsl_ostimer.h']]],
+  ['ostimer_5fdeinit',['OSTIMER_Deinit',['../a00175.html#gacabf48efa9079adc9d71f64c29863f68',1,'fsl_ostimer.h']]],
+  ['ostimer_5fdisablematchinterrupt',['OSTIMER_DisableMatchInterrupt',['../a00175.html#gaf60122d7b4717f4f1703a03e452b724e',1,'fsl_ostimer.h']]],
+  ['ostimer_5fenablematchinterrupt',['OSTIMER_EnableMatchInterrupt',['../a00175.html#ga31eb0176e79686beb6084fb432eb18d0',1,'fsl_ostimer.h']]],
+  ['ostimer_5fgetcapturerawvalue',['OSTIMER_GetCaptureRawValue',['../a00175.html#ga8e8b5d2e9d62a5f59fbb0d0de5991b9a',1,'fsl_ostimer.h']]],
+  ['ostimer_5fgetcapturevalue',['OSTIMER_GetCaptureValue',['../a00175.html#ga877efd24b60e479795af41dc365561c5',1,'fsl_ostimer.h']]],
+  ['ostimer_5fgetcurrenttimerrawvalue',['OSTIMER_GetCurrentTimerRawValue',['../a00175.html#gaa8a253a9a44e2073f4ac6673d025aa60',1,'fsl_ostimer.h']]],
+  ['ostimer_5fgetcurrenttimervalue',['OSTIMER_GetCurrentTimerValue',['../a00175.html#gaedcc9b8f01a37ce8505348300b2af7f1',1,'fsl_ostimer.h']]],
+  ['ostimer_5fgetstatusflags',['OSTIMER_GetStatusFlags',['../a00175.html#ga20486459bd687b67ccbe23a186320fea',1,'fsl_ostimer.h']]],
+  ['ostimer_5fgraytodecimal',['OSTIMER_GrayToDecimal',['../a00175.html#ga781cdfc8f94edec6214964abccb43d59',1,'fsl_ostimer.h']]],
+  ['ostimer_5fhandleirq',['OSTIMER_HandleIRQ',['../a00175.html#gad80c44c301cf21a8d5762de871d22632',1,'fsl_ostimer.h']]],
+  ['ostimer_5finit',['OSTIMER_Init',['../a00175.html#ga575fcffb115c76d2986d8c64a152ea7b',1,'fsl_ostimer.h']]],
+  ['ostimer_5fsetmatchrawvalue',['OSTIMER_SetMatchRawValue',['../a00175.html#gac1d3a55e30354fbf5ade50456da6dfcc',1,'fsl_ostimer.h']]],
+  ['ostimer_5fsetmatchregister',['OSTIMER_SetMatchRegister',['../a00175.html#gad1df9495c6a1f63f621510a6f0fd767d',1,'fsl_ostimer.h']]],
+  ['ostimer_5fsetmatchvalue',['OSTIMER_SetMatchValue',['../a00175.html#gafa080f88a75d1a6e3fbe17482f89fe70',1,'fsl_ostimer.h']]]
+];

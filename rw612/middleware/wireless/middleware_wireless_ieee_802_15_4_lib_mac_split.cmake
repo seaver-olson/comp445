@@ -1,0 +1,5 @@
+# Add set(CONFIG_USE_middleware_wireless_ieee_802_15_4_lib_mac_split true) in config.cmake to use this component
+
+include_guard(GLOBAL)
+message("${CMAKE_CURRENT_LIST_FILE} component is included.")
+

@@ -1,0 +1,1114 @@
+---
+# yaml-language-server: $schema=../../bin/generator/sdk_generator/data/sdk_data_schema/v3/software_set_and_project_schema.json
+
+__variable__:
+  mbedtls3x_version: 3.6.0
+  mbedtls3x_dir: middleware/mbedtls3x
+
+middleware.mbedtls3x.template:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: port
+      target_file:
+      - mcux_mbedtls_config.h
+      - mcux_mbedtls_accelerator_config.h
+      - mcux_psa_defines.h
+    files:
+    - source: port/mcux_mbedtls_config.h
+      attribute: config
+    - source: port/mcux_mbedtls_accelerator_config.h
+      attribute: config
+    configuration:
+      cc-define:
+        MBEDTLS_CONFIG_FILE: '"mcux_mbedtls_config.h"'
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS Template with config files.
+    version: "${mbedtls3x_version}"
+    type: project_template
+    full_name: mbedTLS Template
+    user_visible: never
+    taxonomy:
+      belong_to: mbedtls3x
+      csub: template
+    display_name: mbedtls3x_template
+
+middleware.mbedtls3x.port.config:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: port
+    files:
+    - source: port/mcux_mbedtls_config.h
+    - source: port/mcux_mbedtls_accelerator_config.h
+    - source: port/mcux_psa_defines.h
+    configuration:
+      cc-define:
+        MBEDTLS_CONFIG_FILE: '"mcux_mbedtls_config.h"'
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS port library common files for MCUX
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS MCUX SDK port config layer
+    taxonomy:
+      csub: config
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_config
+
+middleware.mbedtls3x.port.psa_crypto_config:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: port
+    files:
+    - source: port/mcux_mbedtls_psa_crypto_config.h
+    - source: port/mcux_mbedtls_accelerator_config.h
+    - source: port/mcux_psa_defines.h
+    configuration:
+      cc-define:
+        MBEDTLS_CONFIG_FILE: '"mcux_mbedtls_psa_crypto_config.h"'
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS port library common files for MCUX
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS MCUX SDK port psa_crypto only config layer
+    taxonomy:
+      csub: psa_crypto_config
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_psa_crypto_config
+
+middleware.mbedtls3x.port.hw_init:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: port/hw_init
+    files:
+    - source: port/hw_init/hw_init.c
+    - source: port/hw_init/hw_init.h
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS port library for hw initialization of trng
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: always
+    full_name: MbedTLS 3x MCUX SDK port layer for RNG hw Init
+    taxonomy:
+      csub: hw_init
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_port_mcux_hw_init
+
+middleware.mbedtls3x.port.rng:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: port/rng
+    files:
+    - source: port/rng/psa_mcux_entropy.c
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS port library for entropy for all RNG and TRNG based devices
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: always
+    full_name: MbedTLS 3x MCUX SDK port layer for RNG
+    taxonomy:
+      csub: rng
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_port_mcux_rng
+  dependency:
+    allOf:
+      - middleware.mbedtls3x
+      - middleware.mbedtls3x.port.config
+      - anyOf:
+        - allOf:
+          - driver.rng_1
+          - middleware.mbedtls3x.port.hw_init
+          - device:
+            - LPC55S16
+        - allOf:
+          - driver.trng
+          - middleware.mbedtls3x.port.hw_init
+          - device:
+            - MIMXRT685S
+            - RW610
+            - RW612
+        - allOf:
+          - middleware.secure-subsystem.elemu
+          - middleware.secure-subsystem.elemu.port_kw45_k4w1
+          - driver.elemu
+          - device:
+            - KW45B41Z83
+            - K32W1480
+            - MCXW716C
+            - MCXW716A
+            - KW47B42Z83
+            - KW47B42Z96
+            - KW47B42Z97
+            - KW47B42ZB2
+            - KW47B42ZB3
+            - KW47B42ZB6
+            - KW47B42ZB7
+            - KW47Z42082
+            - KW47Z42092
+            - KW47Z420B2
+            - KW47Z420B3
+            - MCXW727C
+            - MCXW727A
+            - MCXW727D
+        - not:
+            device:
+              - LPC55S16
+              - MIMXRT685S
+              - KW45B41Z83
+              - RW610
+              - RW612
+              - MIMXRT1189
+              - MIMXRT1187
+              - K32W1480
+              - MCXW716C
+              - MCXW716A
+              - KW47B42Z83
+              - KW47B42Z96
+              - KW47B42Z97
+              - KW47B42ZB2
+              - KW47B42ZB3
+              - KW47B42ZB6
+              - KW47B42ZB7
+              - KW47Z42082
+              - KW47Z42092
+              - KW47Z420B2
+              - KW47Z420B3
+              - MCXW727C
+              - MCXW727A
+              - MCXW727D
+
+middleware.mbedtls3x.port.tfm:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: port/tfm
+    files:
+    - source: port/tfm/entropy_poll_alt.c
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS port library for use in TFM NS
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS 3x MCUX SDK TFM NS port layer
+    taxonomy:
+      csub: tfm
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_tfm
+  dependency:
+    allOf:
+    - middleware.tfm.ns.interface
+    - middleware.mbedtls3x.port.config
+    - middleware.mbedtls3x.no_psa
+
+middleware.mbedtls3x.tests:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: tests/include/test
+    - repo_relative_path: tests/include
+    files:
+    - source: tests/src/asn1_helpers.c
+    - source: tests/src/bignum_helpers.c
+    - source: tests/src/certs.c
+    - source: tests/src/helpers.c
+    - source: tests/src/psa_crypto_helpers.c
+    - source: tests/src/psa_crypto_stubs.c
+    - source: tests/src/psa_exercise_key.c
+    - source: tests/src/psa_memory_poisoning_wrappers.c
+    - source: tests/src/psa_test_wrappers.c
+    - source: tests/src/random.c
+    - source: tests/src/test_memory.c
+    - source: tests/src/threading_helpers.c
+    - source: tests/src/fake_external_rng_for_test.c
+    - source: tests/src/test_helpers/ssl_helpers.c
+    - source: tests/include/test/asn1_helpers.h
+    - source: tests/include/test/bignum_helpers.h
+    - source: tests/include/test/certs.h
+    - source: tests/include/test/constant_flow.h
+    - source: tests/include/test/fake_external_rng_for_test.h
+    - source: tests/include/test/helpers.h
+    - source: tests/include/test/macros.h
+    - source: tests/include/test/memory.h
+    - source: tests/include/test/psa_crypto_helpers.h
+    - source: tests/include/test/psa_exercise_key.h
+    - source: tests/include/test/psa_helpers.h
+    - source: tests/include/test/psa_memory_poisoning_wrappers.h
+    - source: tests/include/test/psa_test_wrappers.h
+    - source: tests/include/test/random.h
+    - source: tests/include/test/ssl_helpers.h
+    - source: tests/include/test/threading_helpers.h
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS test suite
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source Crypto library
+    taxonomy:
+      csub: tests
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_tests
+
+middleware.mbedtls3x.crypto_storage_default:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+    files:
+    - source: library/psa_its_file.c
+    - source: library/psa_crypto_its.h
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: PSA ITS simulator over stdio files.
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source Crypto library
+    taxonomy:
+      csub: crypto_storage_default
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_crypto_storage_simulator
+  dependency:
+    allOf:
+    - middleware.mbedtls3x.crypto
+
+middleware.mbedtls3x.crypto_storage_fatfs:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+    - repo_relative_path: port/psa_its
+    files:
+    - source: port/psa_its/psa_its_fatfs.c
+    - source: port/psa_its/psa_its_fatfs.h
+    - source: library/psa_crypto_its.h
+    configuration:
+      cc-define:
+        MBEDTLS_PSA_ITS_FILE_FATFS:
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: PSA ITS simulator over fatfs files.
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source Crypto library
+    taxonomy:
+      csub: crypto_storage_fatfs
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_crypto_storage_fatfs
+  dependency:
+    allOf:
+    - middleware.mbedtls3x.crypto
+    - driver.usdhc
+    - component.rgpio_adapter
+    - middleware.sdmmc.host.usdhc
+    - middleware.sdmmc.host.usdhc.interrupt
+    - middleware.sdmmc.sd
+    - middleware.fatfs.sd
+    - middleware.fatfs
+
+middleware.mbedtls3x.crypto_storage_ram:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+    files:
+    - source: port/psa_its/psa_its_ram.c
+    - source: library/psa_crypto_its.h
+    configuration:
+      cc-define:
+        MBEDTLS_PSA_ITS_RAM:
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: PSA ITS simulator over objects in RAM.
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source Crypto library
+    taxonomy:
+      csub: crypto_storage_ram
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_crypto_storage_ram
+  dependency:
+    allOf:
+    - middleware.mbedtls3x.crypto
+
+middleware.mbedtls3x.crypto.no_psa:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+    files:
+    - source: include/mbedtls/aes.h
+    - source: include/mbedtls/aria.h
+    - source: include/mbedtls/asn1.h
+    - source: include/mbedtls/asn1write.h
+    - source: include/mbedtls/base64.h
+    - source: include/mbedtls/bignum.h
+    - source: include/mbedtls/block_cipher.h
+    - source: include/mbedtls/build_info.h
+    - source: include/mbedtls/camellia.h
+    - source: include/mbedtls/ccm.h
+    - source: include/mbedtls/chacha20.h
+    - source: include/mbedtls/chachapoly.h
+    - source: include/mbedtls/check_config.h
+    - source: include/mbedtls/cipher.h
+    - source: include/mbedtls/cmac.h
+    - source: include/mbedtls/compat-2.x.h
+    - source: include/mbedtls/config_adjust_legacy_crypto.h
+    - source: include/mbedtls/config_adjust_legacy_from_psa.h
+    - source: include/mbedtls/config_adjust_psa_from_legacy.h
+    - source: include/mbedtls/config_adjust_psa_superset_legacy.h
+    - source: include/mbedtls/config_adjust_ssl.h
+    - source: include/mbedtls/config_adjust_x509.h    
+    - source: include/mbedtls/config_psa.h
+    - source: include/mbedtls/constant_time.h
+    - source: include/mbedtls/ctr_drbg.h
+    - source: include/mbedtls/debug.h
+    - source: include/mbedtls/des.h
+    - source: include/mbedtls/dhm.h
+    - source: include/mbedtls/ecdh.h
+    - source: include/mbedtls/ecdsa.h
+    - source: include/mbedtls/ecjpake.h
+    - source: include/mbedtls/ecp.h
+    - source: include/mbedtls/entropy.h
+    - source: include/mbedtls/error.h
+    - source: include/mbedtls/gcm.h
+    - source: include/mbedtls/hkdf.h
+    - source: include/mbedtls/hmac_drbg.h
+    - source: include/mbedtls/lms.h
+    - source: include/mbedtls/mbedtls_config.h
+    - source: include/mbedtls/md.h
+    - source: include/mbedtls/md5.h
+    - source: include/mbedtls/memory_buffer_alloc.h
+    - source: include/mbedtls/nist_kw.h
+    - source: include/mbedtls/oid.h
+    - source: include/mbedtls/pem.h
+    - source: include/mbedtls/pk.h
+    - source: include/mbedtls/pkcs5.h
+    - source: include/mbedtls/pkcs12.h
+    - source: include/mbedtls/platform.h
+    - source: include/mbedtls/platform_time.h
+    - source: include/mbedtls/platform_util.h
+    - source: include/mbedtls/poly1305.h
+    - source: include/mbedtls/private_access.h
+    - source: include/mbedtls/psa_util.h
+    - source: include/mbedtls/ripemd160.h
+    - source: include/mbedtls/rsa.h
+    - source: include/mbedtls/sha1.h
+    - source: include/mbedtls/sha3.h
+    - source: include/mbedtls/sha256.h
+    - source: include/mbedtls/sha512.h
+    - source: include/mbedtls/threading.h
+    - source: include/mbedtls/timing.h
+    - source: include/mbedtls/version.h
+    - source: include/psa/build_info.h
+    - source: include/psa/crypto.h
+    - source: include/psa/crypto_adjust_auto_enabled.h
+    - source: include/psa/crypto_adjust_config_key_pair_types.h
+    - source: include/psa/crypto_adjust_config_synonyms.h
+    - source: include/psa/crypto_builtin_composites.h
+    - source: include/psa/crypto_builtin_key_derivation.h
+    - source: include/psa/crypto_builtin_primitives.h
+    - source: include/psa/crypto_compat.h
+    - source: include/psa/crypto_config.h
+    - source: include/psa/crypto_driver_common.h
+    - source: include/psa/crypto_driver_contexts_composites.h
+    - source: include/psa/crypto_driver_contexts_key_derivation.h
+    - source: include/psa/crypto_driver_contexts_primitives.h
+    - source: include/psa/crypto_extra.h
+    - source: include/psa/crypto_legacy.h
+    - source: include/psa/crypto_platform.h
+    - source: include/psa/crypto_se_driver.h
+    - source: include/psa/crypto_sizes.h
+    - source: include/psa/crypto_struct.h
+    - source: include/psa/crypto_types.h
+    - source: include/psa/crypto_values.h
+    - source: library/aes.c
+    - source: library/aesni.c
+    - source: library/aesni.h
+    - source: library/alignment.h
+    - source: library/aesce.c
+    - source: library/aesce.h
+    - source: library/aria.c
+    - source: library/asn1parse.c
+    - source: library/asn1write.c
+    - source: library/base64.c
+    - source: library/base64_internal.h
+    - source: library/bignum.c
+    - source: library/bignum_core.h
+    - source: library/bignum_core.c
+    - source: library/bignum_mod.c
+    - source: library/bignum_mod.h
+    - source: library/bignum_mod_raw.c
+    - source: library/bignum_mod_raw.h
+    - source: library/bignum_mod_raw_invasive.h
+    - source: library/block_cipher.c
+    - source: library/block_cipher_internal.h
+    - source: library/bn_mul.h
+    - source: library/camellia.c
+    - source: library/ccm.c
+    - source: library/chacha20.c
+    - source: library/chachapoly.c
+    - source: library/check_crypto_config.h
+    - source: library/cipher.c
+    - source: library/cipher_wrap.c
+    - source: library/cipher_wrap.h
+    - source: library/cmac.c
+    - source: library/common.h
+    - source: library/constant_time.c
+    - source: library/constant_time_impl.h
+    - source: library/constant_time_internal.h
+    - source: library/ctr_drbg.c
+    - source: library/ctr.h
+    - source: library/des.c
+    - source: library/dhm.c
+    - source: library/ecdh.c
+    - source: library/ecdsa.c
+    - source: library/ecjpake.c
+    - source: library/ecp.c
+    - source: library/ecp_curves.c
+    - source: library/ecp_curves_new.c
+    - source: library/ecp_internal_alt.h
+    - source: library/ecp_invasive.h
+    - source: library/entropy.c
+    - source: library/entropy_poll.c
+    - source: library/entropy_poll.h
+    - source: library/error.c
+    - source: library/gcm.c
+    - source: library/hkdf.c
+    - source: library/hmac_drbg.c
+    - source: library/lmots.c
+    - source: library/lmots.h
+    - source: library/lms.c
+    - source: library/md.c
+    - source: library/md_psa.h
+    - source: library/md_wrap.h
+    - source: library/md5.c
+    - source: library/memory_buffer_alloc.c
+    - source: library/nist_kw.c
+    - source: library/oid.c
+    - source: library/padlock.c
+    - source: library/padlock.h
+    - source: library/pem.c
+    - source: library/pk.c
+    - source: library/pk_ecc.c
+    - source: library/pk_internal.h
+    - source: library/pk_wrap.c
+    - source: library/pk_wrap.h
+    - source: library/pkcs5.c
+    - source: library/pkcs12.c
+    - source: library/pkparse.c
+    - source: library/pkwrite.c
+    - source: library/pkwrite.h
+    - source: library/platform.c
+    - source: library/platform_util.c
+    - source: library/poly1305.c
+    - source: library/psa_crypto_aead.h
+    - source: library/psa_crypto_cipher.h
+    - source: library/psa_crypto_core.h
+    - source: library/psa_crypto_core_common.h
+    - source: library/psa_crypto_driver_wrappers_no_static.h
+    - source: library/psa_crypto_driver_wrappers.h
+    - source: library/psa_crypto_ecp.h
+    - source: library/psa_crypto_ffdh.h
+    - source: library/psa_crypto_hash.h
+    - source: library/psa_crypto_invasive.h
+    - source: library/psa_crypto_its.h
+    - source: library/psa_crypto_mac.h
+    - source: library/psa_crypto_pake.h
+    - source: library/psa_crypto_random_impl.h
+    - source: library/psa_crypto_rsa.h
+    - source: library/psa_crypto_se.h
+    - source: library/psa_crypto_slot_management.h
+    - source: library/psa_crypto_storage.h
+    - source: library/psa_util_internal.h
+    - source: library/psa_util.c
+    - source: library/ripemd160.c
+    - source: library/rsa.c
+    - source: library/rsa_alt_helpers.c
+    - source: library/rsa_alt_helpers.h
+    - source: library/rsa_internal.h
+    - source: library/sha1.c
+    - source: library/sha3.c
+    - source: library/sha256.c
+    - source: library/sha512.c
+    - source: library/threading.c
+    - source: library/timing.c
+    - source: library/version.c
+    - source: library/version_features.c
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS crypto library without PSA
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source Crypto library without PSA
+    taxonomy:
+      csub: crypto_no_psa
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_crypto_no_psa
+
+middleware.mbedtls3x.crypto:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+    files:
+    - source: library/psa_crypto.c
+    - source: library/psa_crypto_aead.c
+    - source: library/psa_crypto_cipher.c
+    - source: library/psa_crypto_client.c
+    - source: library/psa_crypto_driver_wrappers_no_static.c
+    - source: library/psa_crypto_ecp.c
+    - source: library/psa_crypto_ffdh.c
+    - source: library/psa_crypto_hash.c
+    - source: library/psa_crypto_mac.c
+    - source: library/psa_crypto_pake.c
+    - source: library/psa_crypto_rsa.c
+    - source: library/psa_crypto_se.c
+    - source: library/psa_crypto_slot_management.c
+    - source: library/psa_crypto_storage.c
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS crypto library
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source Crypto library
+    taxonomy:
+      csub: crypto
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_crypto
+  dependency:
+    allOf:
+    - middleware.mbedtls3x.crypto.no_psa
+
+middleware.mbedtls3x.x509:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+    files:
+    - source: include/mbedtls/pkcs7.h
+    - source: include/mbedtls/x509.h
+    - source: include/mbedtls/x509_crl.h
+    - source: include/mbedtls/x509_crt.h
+    - source: include/mbedtls/x509_csr.h
+    - source: library/x509.c
+    - source: library/x509_create.c
+    - source: library/x509_crl.c
+    - source: library/x509_crt.c
+    - source: library/x509_csr.c
+    - source: library/x509write.c
+    - source: library/x509write_crt.c
+    - source: library/x509write_csr.c
+    - source: library/x509_internal.h
+    - source: library/pkcs7.c
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS X.509 library
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source X.509 library
+    taxonomy:
+      csub: x509
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_x509
+
+middleware.mbedtls3x.ssl.no_psa:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+    files:
+    - source: include/mbedtls/ssl.h
+    - source: include/mbedtls/ssl_cache.h
+    - source: include/mbedtls/ssl_ciphersuites.h
+    - source: include/mbedtls/ssl_cookie.h
+    - source: include/mbedtls/ssl_ticket.h
+    - source: include/mbedtls/net_sockets.h
+    - source: library/debug.c
+    - source: library/debug_internal.h
+    - source: library/mps_common.h
+    - source: library/mps_error.h
+    - source: library/mps_reader.c
+    - source: library/mps_reader.h
+    - source: library/mps_trace.c
+    - source: library/mps_trace.h
+    - source: library/net_sockets.c
+    - source: library/ssl_cache.c
+    - source: library/ssl_ciphersuites.c
+    - source: library/ssl_ciphersuites_internal.h
+    - source: library/ssl_client.c
+    - source: library/ssl_client.h
+    - source: library/ssl_cookie.c
+    - source: library/ssl_debug_helpers.h
+    - source: library/ssl_debug_helpers_generated.c
+    - source: library/ssl_misc.h
+    - source: library/ssl_msg.c
+    - source: library/ssl_ticket.c
+    - source: library/ssl_tls.c
+    - source: library/ssl_tls12_client.c
+    - source: library/ssl_tls12_server.c
+    - source: library/ssl_tls13_client.c
+    - source: library/ssl_tls13_generic.c
+    - source: library/ssl_tls13_invasive.h
+    - source: library/ssl_tls13_keys.c
+    - source: library/ssl_tls13_keys.h
+    - source: library/ssl_tls13_server.c
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS SSL library without PSA
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source SSL library without PSA
+    taxonomy:
+      csub: ssl_no_psa
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_ssl_no_psa
+  dependency:
+    allOf:
+    - middleware.mbedtls3x.crypto.no_psa
+    - middleware.mbedtls3x.x509
+
+middleware.mbedtls3x.ssl:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS SSL library
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source SSL library
+    taxonomy:
+      csub: ssl
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_ssl
+  dependency:
+    allOf:
+    - middleware.mbedtls3x.ssl.no_psa
+    - middleware.mbedtls3x.crypto
+    - middleware.mbedtls3x.x509
+
+middleware.mbedtls3x.no_psa:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS library v3.x without PSA
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: never
+    full_name: MbedTLS open source SSL library without PSA
+    taxonomy:
+      csub: mbedtls3x_no_psa
+      belong_to: mbedtls3x
+    display_name: mbedtls3x_no_psa
+  dependency:
+    allOf:
+    - middleware.mbedtls3x.template
+    - middleware.mbedtls3x.crypto.no_psa
+    - middleware.mbedtls3x.ssl.no_psa
+    - middleware.mbedtls3x.x509
+
+middleware.mbedtls3x:
+  section-type: component
+  contents:
+    repo_base_path: middleware/mbedtls3x
+    project_base_path: mbedtls3x
+    cc-include:
+    - repo_relative_path: include
+    - repo_relative_path: library
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS library v3.x
+    type: middleware
+    version: "${mbedtls3x_version}"
+    user_visible: always
+    full_name: MbedTLS open source SSL library (Crypto, SSL/TLS, X.509)
+    taxonomy:
+      csub: mbedtls3x
+      belong_to: mbedtls3x
+    display_name: mbedtls3x
+  dependency:
+    allOf:
+    - middleware.mbedtls3x.template
+    - middleware.mbedtls3x.crypto
+    - middleware.mbedtls3x.ssl
+    - middleware.mbedtls3x.x509
+
+middleware.mbedtls3x.default_heap_stack:
+  section-type: project_segment
+  belong_to: set.board.${board}
+  contents:
+    configuration:
+      tools:
+        iar:
+          config:
+            __common__:
+              ad-flags:
+              - __stack_size__=0x2000
+              - __heap_size__=0x8000
+        mdk:
+          config:
+            __common__:
+              ad-flags:
+              - --predefine="-D__stack_size__=0x2000"
+              - --predefine="-D__heap_size__=0x8000"
+        dsmdk:
+          config:
+            __common__:
+              ad-flags:
+              - "-Xlinker --Define macro=__stack_size__=0x2000"
+              - "-Xlinker --Define macro=__heap_size__=0x8000"
+        armgcc:
+          config:
+            __common__:
+              ad-flags:
+              - "-Xlinker --defsym=__stack_size__=0x2000"
+              - "-Xlinker --defsym=__heap_size__=0x8000"
+        mcux:
+          config:
+            __common__:
+              ad-flags:
+              - "-Xlinker --defsym=__stack_size__=0x2000"
+              - "-Xlinker --defsym=__heap_size__=0x8000"
+
+middleware.mbedtls3x.unused_files:
+  section-type: container
+  contents:
+    repo_base_path: "${mbedtls3x_dir}"
+    project_base_path: mbedtls3x
+    files:
+    - source: ".github/*.*"
+      hidden: true
+      exclude: true
+    - source: 3rdparty/*.*
+      hidden: true
+      exclude: true
+    - source: ChangeLog.d/*.*
+      hidden: true
+      exclude: true
+    - source: configs/*.*
+      hidden: true
+      exclude: true
+    - source: docs/*.*
+      hidden: true
+      exclude: true
+    - source: doxygen/*.*
+      hidden: true
+      exclude: true
+    - source: doxygen/input/*.*
+      hidden: true
+      exclude: true
+    - source: include/.gitignore
+      hidden: true
+      exclude: true
+    - source: include/*.txt
+      hidden: true
+      exclude: true
+    - source: library/.gitignore
+      hidden: true
+      exclude: true
+    - source: library/*.txt
+      hidden: true
+      exclude: true
+    - source: library/Makefile
+      hidden: true
+      exclude: true
+    - source: programs/*
+      hidden: true
+      exclude: true
+    - source: programs/aes/*.*
+      hidden: true
+      exclude: true
+    - source: programs/fuzz/*.*
+      hidden: true
+      exclude: true
+    - source: programs/hash/*.*
+      hidden: true
+      exclude: true
+    - source: programs/pkey/*.*
+      hidden: true
+      exclude: true
+    - source: programs/random/*.*
+      hidden: true
+      exclude: true
+    - source: programs/ssl/*.*
+      hidden: true
+      exclude: true
+    - source: programs/test/*.*
+      hidden: true
+      exclude: true
+    - source: programs/util/*.*
+      hidden: true
+      exclude: true
+    - source: programs/x509/*.*
+      hidden: true
+      exclude: true
+    - source: scripts/*.*
+      hidden: true
+      exclude: true
+    - source: scripts/data_files/*.*
+      hidden: true
+      exclude: true
+    - source: scripts/mbedtls_dev/*.*
+      hidden: true
+      exclude: true
+    - source: tests/*
+      hidden: true
+      exclude: true
+    - source: tests/.jenkins/*
+      hidden: true
+      exclude: true
+    - source: tests/configs/*
+      hidden: true
+      exclude: true
+    - source: tests/data_files/*
+      hidden: true
+      exclude: true
+    - source: tests/data_files/base64/*
+      hidden: true
+      exclude: true
+    - source: tests/data_files/dir1/*
+      hidden: true
+      exclude: true
+    - source: tests/data_files/dir2/*
+      hidden: true
+      exclude: true
+    - source: tests/data_files/dir3/*
+      hidden: true
+      exclude: true
+    - source: tests/data_files/dir4/*
+      hidden: true
+      exclude: true
+    - source: tests/data_files/dir-maxpath/*
+      hidden: true
+      exclude: true
+    - source: tests/docker/*.*
+      hidden: true
+      exclude: true
+    - source: tests/git-scripts/*.*
+      hidden: true
+      exclude: true
+    - source: tests/include/*.*
+      hidden: true
+      exclude: true
+    - source: tests/scripts/*.*
+      hidden: true
+      exclude: true
+    - source: tests/src/*.*
+      hidden: true
+      exclude: true
+    - source: tests/suites/*.*
+      hidden: true
+      exclude: true
+    - source: visualc/VS2017/*.*
+      hidden: true
+      exclude: true
+    - source: "*.*"
+      hidden: true
+      exclude: true
+    - source: "*"
+      hidden: true
+      exclude: true
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    description: mbedTLS files unused by projects
+    version: "${mbedtls3x_version}"
+    type: other
+    user_visible: never
+    full_name: MbedTLS unused files
+    display_name: unused_files
+
+set.middleware.mbedtls3x:
+  section-type: set
+  belong_to: set.middleware.mbedtls3x
+  section_info:
+    fixed_id: arm_mbedtls_3x
+    type: middleware
+    version: "${mbedtls3x_version}"
+    display_name: MbedTLS 3.X
+    description: mbedtls SSL/TLS library version 3.X
+    set_location:
+      repo_base_path: "${mbedtls3x_dir}"
+    vendor: NXP
+    product:
+      kex_package:
+        kex_web_ui:
+          ui_control: true
+          ui_release_specific: true
+          ui_control_default: true
+          ui_category: Middleware
+        scr:
+        - scr.middleware.mbedtls3x
+      cmsis_pack:
+        vendor: NXP
+        # supported: true
+        pack_root:
+          pack_type: SWP
+          pack_name: MBEDTLS3X
+          pack_version: 1.0.0
+        scr:
+        - scr.middleware.mbedtls3x
+    component_taxonomy:
+      mbedtls3x:
+        cclass: Security
+        cgroup: MbedTLSv3 library
+        cbundle: Mbed_TLS_3
+        cbundle_version: "${mbedtls3x_version}"
+  dependency:
+    allOf:
+    - device: 
+      - LPC55S16
+      - KW45B41Z83
+      - MIMXRT1189
+      - MIMXRT1187
+      - MIMXRT685S
+      - RW610
+      - RW612
+      - MCXN235
+      - MCXN236
+      - MCXN546
+      - MCXN547
+      - MCXN946
+      - MCXN947
+      - K32W1480
+      - MCXW716C
+      - MCXW716A
+      - KW47B42Z83
+      - KW47B42Z96
+      - KW47B42Z97
+      - KW47B42ZB2
+      - KW47B42ZB3
+      - KW47B42ZB6
+      - KW47B42ZB7
+      - KW47Z42082
+      - KW47Z42092
+      - KW47Z420B2
+      - KW47Z420B3
+      - MCXW727C
+      - MCXW727A
+      - MCXW727D
+
+license.mbedtls3x_license:
+  section-type: license
+  belong_to: set.middleware.mbedtls3x
+  contents:
+    repo_base_path: middleware/mbedtls
+    files:
+    - source: LICENSE
+  section_info:
+    Outgoing License: Apache-2.0
+
+scr.middleware.mbedtls3x:
+  belong_to: set.middleware.mbedtls3x
+  section-type: scr
+  contents:
+    license:
+    - license.mbedtls3x_license
+    Name: Mbed TLS
+    Version: 3.5.0
+    Format: source code
+    Description: Cryptographic and SSL/TLS Library
+    Location: middleware/mbedtls3x
+    Origin: ARM(Apache-2.0) - https://github.com/Mbed-TLS/mbedtls/releases/tag/v3.5.0
+
+set.board.${board}.mbedtls3x:
+  section-type: set
+  belong_to: set.board.${board}.mbedtls3x
+  section_info:
+    fixed_id: board_${board}
+    display_name: "${board}"
+    full_name: NXP board ${board}
+    description: NXP MCUXpresso board ${board} examples for mbedtls3x
+    type: board
+    version: 1.0.0
+    set_location:
+      repo_base_path: "./boards/${board}/mbedtls3x_examples"
+    product:
+      cmsis_pack:
+        scr:
+          - scr.board.${board}.mbedtls3x
+        vendor: NXP
+        pack_root:
+          pack_type: sBSP
+          pack_name: "${board}_MBEDTLS3X_BSP"
+      kex_package:
+        supported: false
+  dependency:
+    allOf:
+      - set.middleware.mbedtls3x
+
+scr.board.${board}.mbedtls3x:
+  section-type: scr
+  belong_to: set.board.${board}.mbedtls3x
+  contents:
+    Name: SDK MBEDTLS3x examples
+    license:
+      - license.bsd-3
+    Format: source code, binary, project files, linker files
+    Description: SDK out of box examples to show how to use peripheral drivers and
+      integrate middleware.
+    Origin: NXP (BSD-3-Clause)
+    Location: "./boards/${board}/mbedtls3x_examples"

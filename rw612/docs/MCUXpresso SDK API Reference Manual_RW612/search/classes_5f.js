@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['_5fcodec_5fhandle',['_codec_handle',['../a00011.html#a00193',1,'']]],
+  ['_5fdmic_5fdma_5fhandle',['_dmic_dma_handle',['../a00018.html#a00194',1,'']]],
+  ['_5fenet_5fhandle',['_enet_handle',['../a00019.html#a00195',1,'']]],
+  ['_5fflexspi_5fdma_5fhandle',['_flexspi_dma_handle',['../a00021.html#a00196',1,'']]],
+  ['_5fflexspi_5fhandle',['_flexspi_handle',['../a00020.html#a00197',1,'']]],
+  ['_5fi2c_5fmaster_5fdma_5fhandle',['_i2c_master_dma_handle',['../a00025.html#a00198',1,'']]],
+  ['_5fi2c_5fmaster_5fhandle',['_i2c_master_handle',['../a00024.html#a00199',1,'']]],
+  ['_5fi2c_5fmaster_5ftransfer',['_i2c_master_transfer',['../a00024.html#a00200',1,'']]],
+  ['_5fi2c_5fslave_5fhandle',['_i2c_slave_handle',['../a00026.html#a00201',1,'']]],
+  ['_5fi2s_5fdma_5fhandle',['_i2s_dma_handle',['../a00028.html#a00202',1,'']]],
+  ['_5fi2s_5fhandle',['_i2s_handle',['../a00027.html#a00203',1,'']]],
+  ['_5flcdic_5fdma_5fhandle',['_lcdic_dma_handle',['../a00031.html#a00204',1,'']]],
+  ['_5flcdic_5fhandle',['_lcdic_handle',['../a00030.html#a00205',1,'']]],
+  ['_5fspi_5fdma_5fhandle',['_spi_dma_handle',['../a00042.html#a00206',1,'']]],
+  ['_5fspi_5fmaster_5fhandle',['_spi_master_handle',['../a00041.html#a00207',1,'']]],
+  ['_5fusart_5fdma_5fhandle',['_usart_dma_handle',['../a00044.html#a00208',1,'']]],
+  ['_5fusart_5fhandle',['_usart_handle',['../a00043.html#a00209',1,'']]]
+];

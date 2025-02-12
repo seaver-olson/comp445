@@ -1,0 +1,12 @@
+# Add set(CONFIG_USE_component_els_pkc_examples true) in config.cmake to use this component
+
+include_guard(GLOBAL)
+message("${CMAKE_CURRENT_LIST_FILE} component is included.")
+
+if(CONFIG_USE_component_els_pkc_flow_protection AND CONFIG_USE_component_els_pkc_session AND CONFIG_USE_component_els_pkc_memory AND CONFIG_USE_component_els_pkc_els AND CONFIG_USE_component_els_pkc_pkc AND CONFIG_USE_component_els_pkc_random_modes AND CONFIG_USE_component_els_pkc AND CONFIG_USE_component_els_pkc_examples_aead AND CONFIG_USE_component_els_pkc_examples_cipher_modes AND CONFIG_USE_component_els_pkc_examples_ecc AND CONFIG_USE_component_els_pkc_examples_els AND CONFIG_USE_component_els_pkc_examples_hash_modes AND CONFIG_USE_component_els_pkc_examples_hmac AND CONFIG_USE_component_els_pkc_examples_key AND CONFIG_USE_component_els_pkc_examples_mac_modes AND CONFIG_USE_component_els_pkc_examples_rsa AND CONFIG_USE_component_els_pkc_examples_flow_protection AND CONFIG_USE_component_els_pkc_examples_memory AND ((CONFIG_USE_component_els_pkc_examples_random_modes AND (CONFIG_DEVICE_ID STREQUAL MCXN546 OR CONFIG_DEVICE_ID STREQUAL MCXN547 OR CONFIG_DEVICE_ID STREQUAL MCXN946 OR CONFIG_DEVICE_ID STREQUAL MCXN947 OR CONFIG_DEVICE_ID STREQUAL MCXN235 OR CONFIG_DEVICE_ID STREQUAL MCXN236 OR CONFIG_DEVICE_ID STREQUAL RW610 OR CONFIG_DEVICE_ID STREQUAL RW612))))
+
+else()
+
+message(SEND_ERROR "component_els_pkc_examples dependency does not meet, please check ${CMAKE_CURRENT_LIST_FILE}.")
+
+endif()

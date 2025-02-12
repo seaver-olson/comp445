@@ -1,0 +1,110 @@
+#!/bin/bash
+#
+# Copyright 2024 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+# The BSD-3-Clause license can be found at https://spdx.org/licenses/BSD-3-Clause.html
+
+set -exo pipefail
+
+COEX_CMAKE_NINJA_TARGET=${COEX_CMAKE_NINJA_TARGET:-}
+
+readonly COEX_SRCDIR="$(pwd)"
+readonly COEX_CLI_OPTIONS=(
+    "-DCMAKE_TOOLCHAIN_FILE=${NXP_RW612_SDK_ROOT}/tools/cmake_toolchain_files/armgcc.cmake"
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
+    "-DCMAKE_BUILD_TYPE=flash_debug"
+    "-DCOEX_NXP_PLATFORM=rw612"
+    "-DCOEX_EXAMPLE_BOARD=rdrw612bga"
+    "-DCOEX_NXP_BASE=edgefast"
+    "-DCOEX_EXAMPLE_NAME=coex_cli"
+    "-DCOEX_APP_SUPP=OFF"
+)
+
+readonly COEX_WPA_SUPPLICANT_OPTIONS=(
+    "-DCMAKE_TOOLCHAIN_FILE=${NXP_RW612_SDK_ROOT}/tools/cmake_toolchain_files/armgcc.cmake"
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
+    "-DCMAKE_BUILD_TYPE=flash_debug"
+    "-DCOEX_NXP_PLATFORM=rw612"
+    "-DCOEX_EXAMPLE_BOARD=rdrw612bga"
+    "-DCOEX_NXP_BASE=edgefast"
+    "-DCOEX_EXAMPLE_NAME=coex_wpa_supplicant"
+    "-DCOEX_APP_SUPP=ON"
+)
+
+build()
+{
+    local builddir="${COEX_CMAKE_BUILD_DIR:-build_rw612}"
+
+    mkdir -p "${builddir}"
+    cd "${builddir}"
+    mkdir -p "$1"
+    cd "$1"
+
+    # shellcheck disable=SC2068
+    cmake -GNinja "$@" "${COEX_SRCDIR}"
+
+    if [[ -n ${COEX_CMAKE_NINJA_TARGET[*]} ]]; then
+        ninja "${COEX_CMAKE_NINJA_TARGET[@]}"
+    else
+        ninja
+    fi
+
+    cd "${COEX_SRCDIR}"
+}
+
+create_directory_and_build()
+{
+    if [ "$1" == 'coex_cli' ]; then
+        build_coex_cli "$@"
+    elif [ "$1" == 'coex_wpa_supplicant' ]; then
+        build_coex_wpa_supplicant "$@"
+    elif [ "$1" == 'all' ]; then
+        build_coex_cli "$@"
+        build_coex_wpa_supplicant "$@"
+    else
+        echo >&2 "Unsupported action: $1. Supported: coex_cli, coex_wpa_supplicant"
+        # 128 for Invalid arguments
+        exit 128
+    fi
+
+}
+
+build_coex_cli()
+{
+    local options=("${COEX_CLI_OPTIONS[@]}")
+    options+=("-DNXP_SDK_ROOT=$NXP_RW612_SDK_ROOT")
+    options+=("${@:2}")
+
+    build rw612_coex_cli "${options[@]}"
+}
+
+build_coex_wpa_supplicant()
+{
+    local options=("${COEX_WPA_SUPPLICANT_OPTIONS[@]}")
+    options+=("-DNXP_SDK_ROOT=$NXP_RW612_SDK_ROOT")
+    options+=("${@:2}")
+
+    build rw612_coex_wpa_supplicant "${options[@]}"
+}
+
+main()
+{
+
+    # check if environmental variable NXP_RW612_SDK_ROOT is set
+    #     if not, then use "../../../" as a possible path
+    if [ -z "$NXP_RW612_SDK_ROOT" ]; then
+        export NXP_RW612_SDK_ROOT="${COEX_SRCDIR}/third_party/mcu-sdk/"
+    fi
+
+    echo "NXP_RW612_SDK_ROOT set to " $NXP_RW612_SDK_ROOT
+
+    if [ $# == 0 ]; then
+        create_directory_and_build all
+    else
+        create_directory_and_build "$@"
+    fi
+
+}
+
+main "$@"
