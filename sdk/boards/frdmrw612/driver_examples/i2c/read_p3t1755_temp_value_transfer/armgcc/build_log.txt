@@ -1,0 +1,46 @@
+Scanning dependencies of target i2c_read_p3t1755_temp_value_transfer.elf
+[  2%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/driver_examples/i2c/read_p3t1755_temp_value_transfer/i2c_read_p3t1755_temp_value_transfer.c.obj
+[  5%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/driver_examples/i2c/read_p3t1755_temp_value_transfer/pin_mux.c.obj
+[ 10%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/driver_examples/i2c/read_p3t1755_temp_value_transfer/board.c.obj
+[ 10%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/driver_examples/i2c/read_p3t1755_temp_value_transfer/clock_config.c.obj
+[ 12%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClBuffer/src/mcuxClBuffer.c.obj
+[ 15%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClEls/src/mcuxClEls_Common.c.obj
+[ 17%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/src/mcuxClMemory.c.obj
+[ 20%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Clear.c.obj
+[ 23%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Compare.c.obj
+[ 25%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Copy.c.obj
+[ 28%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Internal_SecureCompare_Stub.c.obj
+[ 30%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Set.c.obj
+[ 33%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClEls/src/mcuxClEls_GlitchDetector.c.obj
+[ 35%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslParamIntegrity/src/mcuxCsslParamIntegrity.c.obj
+[ 38%] Building ASM object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/gcc/startup_RW612.S.obj
+[ 41%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/uart/fsl_adapter_usart.c.obj
+[ 43%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/system_RW612.c.obj
+[ 46%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_clock.c.obj
+[ 48%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_cache.c.obj
+[ 51%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_common.c.obj
+[ 53%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_flexcomm.c.obj
+[ 56%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/flash_config/flash_config.c.obj
+[ 58%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_common_arm.c.obj
+[ 61%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_i2c.c.obj
+[ 64%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_usart.c.obj
+[ 69%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_inputmux.c.obj
+[ 66%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_flexspi.c.obj
+[ 71%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_ocotp.c.obj
+[ 74%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_gpio.c.obj
+[ 76%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/sensor/p3t1755/fsl_p3t1755.c.obj
+[ 79%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/fsl_sbrk.c.obj
+[ 82%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_reset.c.obj
+[ 84%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_power.c.obj
+[ 87%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/fsl_syscall_stub.c.obj
+[ 89%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/debug_console_lite/fsl_debug_console.c.obj
+[ 92%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/debug_console_lite/fsl_assert.c.obj
+[ 94%] Building ASM object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/fsl_memcpy.S.obj
+[ 97%] Building C object CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/str/fsl_str.c.obj
+[100%] Linking C executable flash_debug/i2c_read_p3t1755_temp_value_transfer.elf
+Memory region         Used Size  Region Size  %age Used
+  m_flash_config:          4 KB         4 KB    100.00%
+    m_interrupts:         640 B        640 B    100.00%
+          m_text:       39816 B    2092416 B      1.90%
+          m_data:        5928 B      1216 KB      0.48%
+[100%] Built target i2c_read_p3t1755_temp_value_transfer.elf

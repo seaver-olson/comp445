@@ -1,0 +1,3 @@
+/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/driver_examples/i2c/read_p3t1755_temp_value_transfer/armgcc/CMakeFiles/i2c_read_p3t1755_temp_value_transfer.elf.dir
+/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/driver_examples/i2c/read_p3t1755_temp_value_transfer/armgcc/CMakeFiles/edit_cache.dir
+/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/driver_examples/i2c/read_p3t1755_temp_value_transfer/armgcc/CMakeFiles/rebuild_cache.dir
