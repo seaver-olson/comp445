@@ -44,6 +44,7 @@ float DEMO_MeasureTemperature(void)
  */
 int main(void)
 {
+    char buff[32];
     /* Init board hardware. */
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
@@ -53,7 +54,12 @@ int main(void)
     PRINTF("\r\n Please press any key to get the temperature.");
     while (1)
     {
-        GETCHAR();
-        PRINTF("\r\n Current temperature is: %.3f degrees Celsius.", ((double)DEMO_MeasureTemperature()));
+        double temp = ((double)DEMO_MeasureTemperature());
+        PRINTF("Current temperature: %.3f", temp);
+        snprintf(buff,sizeof(buff), "%ud: %.3f", temp);
+	for (char c : buff){
+		printf("%c",c);
+	}
+	printf("\n");
     }
 }
