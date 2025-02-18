@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ubuntu/Desktop/comp445/sdk/devices/RW612/gcc/startup_RW612.S
+
+/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/fsl_memcpy.S
+

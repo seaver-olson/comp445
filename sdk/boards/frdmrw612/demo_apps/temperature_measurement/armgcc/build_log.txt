@@ -1,0 +1,43 @@
+Scanning dependencies of target temperature_measurement.elf
+[  2%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/demo_apps/temperature_measurement/temperature_measurement.c.obj
+[  5%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/demo_apps/temperature_measurement/pin_mux.c.obj
+[  8%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/demo_apps/temperature_measurement/board.c.obj
+[ 11%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/demo_apps/temperature_measurement/clock_config.c.obj
+[ 13%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClBuffer/src/mcuxClBuffer.c.obj
+[ 16%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClEls/src/mcuxClEls_Common.c.obj
+[ 19%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/src/mcuxClMemory.c.obj
+[ 22%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Compare.c.obj
+[ 25%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Clear.c.obj
+[ 27%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Copy.c.obj
+[ 30%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Internal_SecureCompare_Stub.c.obj
+[ 33%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslMemory/src/mcuxCsslMemory_Set.c.obj
+[ 36%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslParamIntegrity/src/mcuxCsslParamIntegrity.c.obj
+[ 38%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClEls/src/mcuxClEls_GlitchDetector.c.obj
+[ 41%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/uart/fsl_adapter_usart.c.obj
+[ 44%] Building ASM object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/gcc/startup_RW612.S.obj
+[ 47%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/system_RW612.c.obj
+[ 50%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_cache.c.obj
+[ 52%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_clock.c.obj
+[ 55%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_common.c.obj
+[ 58%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_common_arm.c.obj
+[ 61%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_flexcomm.c.obj
+[ 63%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/boards/frdmrw612/flash_config/flash_config.c.obj
+[ 66%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_usart.c.obj
+[ 72%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_flexspi.c.obj
+[ 72%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/str/fsl_str.c.obj
+[ 75%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/fsl_sbrk.c.obj
+[ 77%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_ocotp.c.obj
+[ 80%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_gpio.c.obj
+[ 83%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/debug_console_lite/fsl_debug_console.c.obj
+[ 86%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/fsl_syscall_stub.c.obj
+[ 88%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/debug_console_lite/fsl_assert.c.obj
+[ 91%] Building ASM object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/utilities/fsl_memcpy.S.obj
+[ 94%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_power.c.obj
+[ 97%] Building C object CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/devices/RW612/drivers/fsl_reset.c.obj
+[100%] Linking C executable flash_debug/temperature_measurement.elf
+Memory region         Used Size  Region Size  %age Used
+  m_flash_config:          4 KB         4 KB    100.00%
+    m_interrupts:         640 B        640 B    100.00%
+          m_text:       35616 B    2092416 B      1.70%
+          m_data:        5856 B      1216 KB      0.47%
+[100%] Built target temperature_measurement.elf

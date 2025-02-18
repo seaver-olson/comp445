@@ -1,12 +1,9 @@
 //Homework 4 Seaver Olson
-#include <stdio.h>
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "board.h"
 #include "fsl_device_registers.h"
 #include "fsl_debug_console.h"
-
-
 
 float DEMO_MeasureTemperature(void);
 
@@ -28,25 +25,17 @@ float DEMO_MeasureTemperature(void)
 
 
 int main(void)
-{   
-    FILE *fp;
-    char buff[32];
+{
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
     BOARD_InitDebugConsole();
-
-    fp = fopen("temperatureLog.txt", "w");
-    if (fp == NULL) {
-        printf("Error opening file!\n");
-        return 1;
-    }
-    //2 x 24 x 60 = 2880
-    for (int i = 0; i < 2880; i++) {
+    // 60 x 24
+    for (int i = 0; i < 5760; i++) {
         double temp = ((double)DEMO_MeasureTemperature());
-        fprintf(fp, "%d: %.3f\n", i, temp);
-        printf("%d: %.3f\n", i, temp);
-        sleep(60);
-    }
-    fclose(fp);
+        PRINTF("%d: %.3f\n", i, temp);
+        for (int j = 0; j < 30; j++){
+		SDK_DelayAtLeastUs(1000000, CLOCK_GetCoreSysClkFreq());
+	}
+}
     return 0;
 }

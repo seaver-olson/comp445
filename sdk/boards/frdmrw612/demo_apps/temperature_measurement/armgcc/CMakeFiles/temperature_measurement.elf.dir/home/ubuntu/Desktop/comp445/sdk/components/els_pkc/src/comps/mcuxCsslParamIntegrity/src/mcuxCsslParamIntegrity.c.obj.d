@@ -1,0 +1,19 @@
+CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslParamIntegrity/src/mcuxCsslParamIntegrity.c.obj: \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslParamIntegrity/src/mcuxCsslParamIntegrity.c \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslParamIntegrity/inc/mcuxCsslParamIntegrity.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslCPreProcessor/inc/mcuxCsslAnalysis.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_Impl.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_Cfg.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslSecureCounter/inc/mcuxCsslSecureCounter_Cfg.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_SecureCounter_Common.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslCPreProcessor/inc/mcuxCsslCPreProcessor.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslSecureCounter/inc/mcuxCsslSecureCounter.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslSecureCounter/inc/mcuxCsslSecureCounter_Impl.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslSecureCounter/inc/mcuxCsslSecureCounter_SW_Local.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_SecureCounter_Local.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_FunctionIdentifiers.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h

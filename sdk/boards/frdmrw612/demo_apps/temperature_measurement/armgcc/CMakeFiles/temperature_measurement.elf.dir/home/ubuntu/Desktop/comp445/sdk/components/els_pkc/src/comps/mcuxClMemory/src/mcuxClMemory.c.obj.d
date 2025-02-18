@@ -1,0 +1,29 @@
+CMakeFiles/temperature_measurement.elf.dir/home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/src/mcuxClMemory.c.obj: \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/src/mcuxClMemory.c \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/platforms/rw61x/mcuxClConfig.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslCPreProcessor/inc/mcuxCsslAnalysis.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_Impl.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_Cfg.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslSecureCounter/inc/mcuxCsslSecureCounter_Cfg.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_SecureCounter_Common.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslCPreProcessor/inc/mcuxCsslCPreProcessor.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslSecureCounter/inc/mcuxCsslSecureCounter.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslSecureCounter/inc/mcuxCsslSecureCounter_Impl.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslSecureCounter/inc/mcuxCsslSecureCounter_SW_Local.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxCsslFlowProtection/inc/mcuxCsslFlowProtection_SecureCounter_Local.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClCore/inc/mcuxClCore_FunctionIdentifiers.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory_Constants.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory_Types.h \
+ /usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory_Endianness.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory_Clear.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory_Copy.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory_Copy_Reversed.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClCore/inc/mcuxClCore_Platform.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory_Set.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/comps/mcuxClMemory/inc/mcuxClMemory_Xor.h \
+ /home/ubuntu/Desktop/comp445/sdk/components/els_pkc/src/compiler/mcuxClToolchain.h
