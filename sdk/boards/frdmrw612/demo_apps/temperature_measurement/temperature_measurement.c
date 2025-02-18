@@ -1,28 +1,15 @@
-/*
- * Copyright 2024 NXP
- * All rights reserved.
- *
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
+//Homework 4 Seaver Olson
+#include <stdio.h>
 #include "pin_mux.h"
 #include "clock_config.h"
 #include "board.h"
 #include "fsl_device_registers.h"
 #include "fsl_debug_console.h"
 
-/*******************************************************************************
- * Definitions
- ******************************************************************************/
 
-/*******************************************************************************
- * Prototypes
- ******************************************************************************/
+
 float DEMO_MeasureTemperature(void);
 
-/*******************************************************************************
- * Code
- ******************************************************************************/
 float DEMO_MeasureTemperature(void)
 {
     uint16_t tempRawValue = 0U;
@@ -39,27 +26,27 @@ float DEMO_MeasureTemperature(void)
     return (tempRawValue * 0.480561F - 220.7074F);
 }
 
-/*!
- * @brief Main function
- */
+
 int main(void)
-{
+{   
+    FILE *fp;
     char buff[32];
-    /* Init board hardware. */
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
     BOARD_InitDebugConsole();
 
-    PRINTF("\r\n Temperature measurement example.");
-    PRINTF("\r\n Please press any key to get the temperature.");
-    while (1)
-    {
-        double temp = ((double)DEMO_MeasureTemperature());
-        PRINTF("Current temperature: %.3f", temp);
-        snprintf(buff,sizeof(buff), "%ud: %.3f", temp);
-	for (char c : buff){
-		printf("%c",c);
-	}
-	printf("\n");
+    fp = fopen("temperatureLog.txt", "w");
+    if (fp == NULL) {
+        printf("Error opening file!\n");
+        return 1;
     }
+    //2 x 24 x 60 = 2880
+    for (int i = 0; i < 2880; i++) {
+        double temp = ((double)DEMO_MeasureTemperature());
+        fprintf(fp, "%d: %.3f\n", i, temp);
+        printf("%d: %.3f\n", i, temp);
+        sleep(60);
+    }
+    fclose(fp);
+    return 0;
 }
